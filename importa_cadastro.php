@@ -5,9 +5,6 @@
 </head>
 <body>
 <?php
-//echo "The current date is ";
-//echo date("l F d, Y");
-
 
 $arq = file("../2801_CADASTRO.csv");
 foreach ($arq as $temp_valor) { // c = coluna
