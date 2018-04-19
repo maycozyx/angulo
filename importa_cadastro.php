@@ -1,4 +1,7 @@
-<html lang="pt-br">
+<?php
+error_reporting(E_ALL ^ E_DEPRECATED);
+ini_set('display_errors', 1 );
+?><!DOCTYPE html><html lang="pt-br">
 <head>
 	<title></title>
 	<meta charset="utf-8">
