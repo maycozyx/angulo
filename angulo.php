@@ -26,42 +26,23 @@ function calculaPercentual( $tq, $ta ) { // calcula quantos porcento o aluno tev
 	return ( ($ta * 100) / $tq );
 }
 
-function comparaGabaritoERespostas( $spa, $ga, $t, $spg ) {
+function contaAcertos( $spa, $ga, $t, $spg ) {
 	$acertos = 0; // armazena a quantidade de acertos do aluno na prova
 	$i = 0; // para controle do array no foreach
 	$rga = str_split($ga); // rga = Respostas do Gabarito do Aluno
-	foreach( $spg[$spa] as $q ) {
-		if ( $q == $rga[$i] || $q == 'Z' ) {
+	foreach( $spg[$spa] as $q ) { // se acertou a questão
+		if ( $q == $rga[$i] ) {
+			$acertos++;
+		} elseif ( $q == 'Z' ) { // se questão é validada para todas as turmas
 			$acertos++;
 		}
 		echo $q . $rga[$i] . ' ';
 		$i++; // também é utilizado para saber-se quantas questões tem a prova
 	}
-	echo " <b>Ac:</b>" . $acertos . " <b>%</b>" . round(calculaPercentual( $i, $acertos ), 1);
+	//echo " <b>Ac:</b>" . $acertos . " <b>%</b>" . round(calculaPercentual( $i, $acertos ), 1);
+	echo " <b>Ac:</b>" . $acertos . "/$i <b>%</b>" . round(calculaPercentual( $i, $acertos ), 1);
 }
 
-function contaAcertos( $spa, $ga, $t, $spg) { // spa = Série Prova Aluno; ga = Gabarito do Aluno, t = Turma
-	//$acertos = 0; // armazena a quantidade de acertos do aluno na prova
-	//$i = 0; // para controle do array no foreach
-	
-//	if ( $spa == 'D6EF01' ) {
-		/*$rga = str_split($ga); // rga = Respostas do Gabarito do Aluno
-		foreach( $spg[$spa] as $q ) {
-			if ( $q == $rga[$i] || $q == 'Z' ) {
-				$acertos++;
-			}
-			echo $q . $rga[$i] . ' ';
-			$i++; // também é utilizado para saber-se quantas questões tem a prova
-//		}
-		echo " <b>Acertos:</b>" . $acertos . " <b>%</b>" . round(calculaPercentual( $i, $acertos ), 1); */
-//		comparaGabaritoERespostas( $spa, $ga, $t, $spg );
-//	}
-/*	if ( $spa == 'D6EF02' ) {
-		comparaGabaritoERespostas( $spa, $ga, $t, $spg );
-	}
-*/
-	comparaGabaritoERespostas( $spa, $ga, $t, $spg );
-}
 
 //$r = mysql_query("SELECT * FROM gabaritos");
 $rg = mysql_query("SELECT c2, c3, c10, c13 FROM gabaritos ORDER BY c2 ASC, c10 ASC, c3 ASC"); // rg = resultado gabaritos
