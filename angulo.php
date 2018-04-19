@@ -37,14 +37,14 @@ function comparaGabaritoERespostas( $spa, $ga, $t, $spg ) {
 		echo $q . $rga[$i] . ' ';
 		$i++; // também é utilizado para saber-se quantas questões tem a prova
 	}
-	echo " <b>Acertos:</b>" . $acertos . " <b>%</b>" . round(calculaPercentual( $i, $acertos ), 1);
+	echo " <b>Ac:</b>" . $acertos . " <b>%</b>" . round(calculaPercentual( $i, $acertos ), 1);
 }
 
 function contaAcertos( $spa, $ga, $t, $spg) { // spa = Série Prova Aluno; ga = Gabarito do Aluno, t = Turma
 	//$acertos = 0; // armazena a quantidade de acertos do aluno na prova
 	//$i = 0; // para controle do array no foreach
 	
-	if ( $spa == 'D6EF01' ) {
+//	if ( $spa == 'D6EF01' ) {
 		/*$rga = str_split($ga); // rga = Respostas do Gabarito do Aluno
 		foreach( $spg[$spa] as $q ) {
 			if ( $q == $rga[$i] || $q == 'Z' ) {
@@ -52,13 +52,15 @@ function contaAcertos( $spa, $ga, $t, $spg) { // spa = Série Prova Aluno; ga = 
 			}
 			echo $q . $rga[$i] . ' ';
 			$i++; // também é utilizado para saber-se quantas questões tem a prova
-		}
+//		}
 		echo " <b>Acertos:</b>" . $acertos . " <b>%</b>" . round(calculaPercentual( $i, $acertos ), 1); */
+//		comparaGabaritoERespostas( $spa, $ga, $t, $spg );
+//	}
+/*	if ( $spa == 'D6EF02' ) {
 		comparaGabaritoERespostas( $spa, $ga, $t, $spg );
 	}
-	if ( $spa == 'D6EF02' ) {
-		comparaGabaritoERespostas( $spa, $ga, $t, $spg );
-	}
+*/
+	comparaGabaritoERespostas( $spa, $ga, $t, $spg );
 }
 
 //$r = mysql_query("SELECT * FROM gabaritos");
@@ -72,7 +74,7 @@ while ($rowg=mysql_fetch_array($rg))
 			$rc = mysql_query("SELECT c2 FROM cadastro WHERE c4='$rowg[c3]'"); // rc = resultado cadastro
 			$rowc=mysql_fetch_array($rc);
 						
-			if ( ( $rowg['c2'] == 'D6EF01' ) || ( $rowg['c2'] == 'D6EF02' ) ) { // após todas as turmas serem feitas as conferências, este IF vai ser retirado
+			if ( ( $rowg['c2'] == 'D6EF01' ) || ( $rowg['c2'] == 'D6EF02' ) || ( $rowg['c2'] == 'D7EF01' ) || ( $rowg['c2'] == 'D7EF02' ) || ( $rowg['c2'] == 'D8EF01' ) || ( $rowg['c2'] == 'D9EF01' ) || ( $rowg['c2'] == 'D9EF02' ) ) { // após todas as turmas serem feitas as conferências, este IF vai ser retirado
 				contaAcertos( $rowg['c2'], $rowg['c13'], $rowg['c10'], $spg );
 			}
 			echo " <b>S:</b>$rowg[c2] <b>Nº</b>$rowg[c3] <b>T:</b>$rowg[c10] <b>N:</b>$rowc[0]";
