@@ -22,22 +22,43 @@ $spg["D8EF02"] = array('B', 'D', 'B', 'B', 'A', 'B', 'Z', 'C', 'Z', 'C', 'D', 'C
 $spg["D9EF01"] = array('C', 'A', 'E', 'B', 'C', 'B', 'D', 'D', 'C', 'A', 'B', 'D', 'E', 'Z', 'E', 'A', 'C', 'B', 'C', 'Z', 'Z', 'Z', 'E', 'D', 'C', 'C', 'D', 'C', 'A', 'E');
 $spg["D9EF02"] = array('B', 'B', 'D', 'B', 'A', 'C', 'A', 'B', 'D', 'E', 'E', 'B', 'E', 'B', 'C', 'E', 'A', 'B', 'B', 'D', 'C', 'B', 'A', 'C', 'B', 'B', 'E', 'D', 'E', 'E');
 
-function contaAcertos( $spa, $ga, $t, $spg) { // spa = Série Prova Aluno; ga = Gabarito do Aluno, t = Turma
+function calculaPercentual( $tq, $ta ) { // calcula quantos porcento o aluno teve de acerto; tq = Total de Questões; ta = Total de Acertos
+	return ( ($ta * 100) / $tq );
+}
+
+function comparaGabaritoERespostas( $spa, $ga, $t, $spg ) {
 	$acertos = 0; // armazena a quantidade de acertos do aluno na prova
 	$i = 0; // para controle do array no foreach
+	$rga = str_split($ga); // rga = Respostas do Gabarito do Aluno
+	foreach( $spg[$spa] as $q ) {
+		if ( $q == $rga[$i] || $q == 'Z' ) {
+			$acertos++;
+		}
+		echo $q . $rga[$i] . ' ';
+		$i++; // também é utilizado para saber-se quantas questões tem a prova
+	}
+	echo " <b>Acertos:</b>" . $acertos . " <b>%</b>" . round(calculaPercentual( $i, $acertos ), 1);
+}
+
+function contaAcertos( $spa, $ga, $t, $spg) { // spa = Série Prova Aluno; ga = Gabarito do Aluno, t = Turma
+	//$acertos = 0; // armazena a quantidade de acertos do aluno na prova
+	//$i = 0; // para controle do array no foreach
+	
 	if ( $spa == 'D6EF01' ) {
-		//print_r($spg[$spa]);
-		$rga = str_split($ga); // rga = Respostas do Gabarito do Aluno
-		//print_r($rga);
+		/*$rga = str_split($ga); // rga = Respostas do Gabarito do Aluno
 		foreach( $spg[$spa] as $q ) {
 			if ( $q == $rga[$i] || $q == 'Z' ) {
 				$acertos++;
 			}
 			echo $q . $rga[$i] . ' ';
-			$i++;
+			$i++; // também é utilizado para saber-se quantas questões tem a prova
 		}
+		echo " <b>Acertos:</b>" . $acertos . " <b>%</b>" . round(calculaPercentual( $i, $acertos ), 1); */
+		comparaGabaritoERespostas( $spa, $ga, $t, $spg );
 	}
-	echo " <b>Acertos:</b>" . $acertos;
+	if ( $spa == 'D6EF02' ) {
+		comparaGabaritoERespostas( $spa, $ga, $t, $spg );
+	}
 }
 
 //$r = mysql_query("SELECT * FROM gabaritos");
@@ -51,17 +72,17 @@ while ($rowg=mysql_fetch_array($rg))
 			$rc = mysql_query("SELECT c2 FROM cadastro WHERE c4='$rowg[c3]'"); // rc = resultado cadastro
 			$rowc=mysql_fetch_array($rc);
 						
-			if ( $rowg['c2'] == 'D6EF01' ) { // após todas as turmas serem feitas as conferências, este IF vai ser retirado
+			if ( ( $rowg['c2'] == 'D6EF01' ) || ( $rowg['c2'] == 'D6EF02' ) ) { // após todas as turmas serem feitas as conferências, este IF vai ser retirado
 				contaAcertos( $rowg['c2'], $rowg['c13'], $rowg['c10'], $spg );
 			}
-			echo " <b>Série:</b>$rowg[c2] <b>Nº</b>$rowg[c3] <b>Turma:</b>$rowg[c10] <b>Nome:</b>$rowc[0]";
+			echo " <b>S:</b>$rowg[c2] <b>Nº</b>$rowg[c3] <b>T:</b>$rowg[c10] <b>N:</b>$rowc[0]";
 			echo "<br>";
         }        
 
 
-//print_r($r);
+print_r($spg);
 //var_dump($r);
-print_r($sp);
+//print_r($sp);
 
 mysql_close($conexao);
 ?>
