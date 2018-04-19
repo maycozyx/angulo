@@ -1,6 +1,6 @@
 <?php
-//error_reporting(E_ALL ^ E_DEPRECATED);
-//ini_set('display_errors', 1 );
+error_reporting(E_ALL ^ E_DEPRECATED);
+ini_set('display_errors', 1 );
 ?><!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +13,7 @@
 include "conecta_mysql.inc";
 
 //$r = mysql_query("SELECT * FROM gabaritos");
-$rg = mysql_query("SELECT c2, c3, c10 FROM gabaritos"); // rg = resultado gabaritos
+$rg = mysql_query("SELECT c2, c3, c10 FROM gabaritos ORDER BY c2 ASC, c10 ASC, c3 ASC"); // rg = resultado gabaritos
 
 while ($rowg=mysql_fetch_array($rg))
         {
