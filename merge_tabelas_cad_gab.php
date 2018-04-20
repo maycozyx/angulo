@@ -46,7 +46,7 @@ while ($rowg=mysql_fetch_array($rg))
 			$rga = gabaritoAlunno( $rowg['c2'], $rowg['c13'], $spg ); // rga = Respostas do Gabarito do Aluno
 			echo "<b>R:</b>$rga <b>SP:</b>$rowg[c2] <b>Nº</b>$rowg[c3] <b>T:</b>$rowg[c10] <b>N:</b>$rowc[0]";
 			/* $spl = lsp(); // spl = Série Prova Limpa  */
-			//mysql_query( "INSERT INTO selecionados ( respostas, serie_prova, numero, turma, nome ) VALUES ( '$rga', '$rowg[c2]', '$rowg[c3]', '$rowg[c10]', '$rowc[0]' )" );
+			mysql_query( "INSERT INTO selecionados ( respostas, serie_prova, numero, turma, nome ) VALUES ( '$rga', '$rowg[c2]', '$rowg[c3]', '$rowg[c10]', '$rowc[0]' )" );
 			printf(" Records inseridos: %d\n", mysql_affected_rows()); 
 			echo mysql_error();
 			echo "<br>";
