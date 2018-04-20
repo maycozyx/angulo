@@ -58,6 +58,7 @@ CREATE TABLE selecionados
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	respostas VARCHAR(30),
 	serie_prova VARCHAR(6),
+	numero VARCHAR(7),
 	turma VARCHAR(1),
 	nome VARCHAR(255),
 	PRIMARY KEY(id)
