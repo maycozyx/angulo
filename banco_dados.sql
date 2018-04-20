@@ -51,3 +51,14 @@ CREATE TABLE gabaritos
 	c13 VARCHAR(255),
 	PRIMARY KEY(id)
 );
+
+/* tabela com apenas os dados necessários */
+CREATE TABLE selecionados
+(
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	respostas VARCHAR(30),
+	serie_prova VARCHAR(6),
+	turma VARCHAR(1),
+	nome VARCHAR(255),
+	PRIMARY KEY(id)
+);
