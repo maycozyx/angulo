@@ -59,17 +59,18 @@ function processa( $sp, $t, $qi, $qf, $d, $spg) { // Processa notas da turma; sp
 // ------------------ PRINCIPAL 
 
 //print_r($spg['D6EF01']);
-
-foreach( $spg['D6EF01'] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
+$ap = 'D6EF01'; // Ano Prova 
+foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
 	//print_r($t);
-	processa( 'D6EF01', $t, 1, 7, 'Matemática', $spg);
-	processa( 'D6EF01', $t, 8, 11, 'História', $spg);
-	processa( 'D6EF01', $t, 12, 15, 'Geografia', $spg);
+	processa( $ap, $t, 1, 7, 'Matemática', $spg);
+	processa( $ap, $t, 8, 11, 'História', $spg);
+	processa( $ap, $t, 12, 15, 'Geografia', $spg);
 }
 
-foreach( $spg['D6EF02'] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
-	processa( 'D6EF02', $t, 1, 10, 'Português', $spg);
-	processa( 'D6EF02', $t, 11, 15, 'Ciências', $spg);
+$ap = 'D6EF02';
+foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
+	processa( $ap, $t, 1, 10, 'Português', $spg);
+	processa( $ap, $t, 11, 15, 'Ciências', $spg);
 }
 
 
