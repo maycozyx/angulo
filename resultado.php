@@ -8,6 +8,11 @@ ini_set('display_errors', 1 );
 	<meta charset="utf-8">
 	<style>
 		.break { page-break-before: always; }
+		b {
+			font-weight: bold;
+			font-family: "Arial Black", Times, serif;
+			font-size: 12px;
+		}
 	</style>
 </head>
 <body>
@@ -32,7 +37,7 @@ function confere( $sp, $t, $a, $qi, $qf, $d, $spg ) { // a = Aluno; qi = Questã
 	$rga = str_split($a['respostas']); // rga = Respostas do Gabarito do Aluno
 	//print_r($rga);
 	//print_r($spg[$sp][$t]);
-	echo "$sp $t $d ";
+	//echo "$sp $t $d ";
 	while ( ( $i >= $qi ) && ( $i <= $qf ) ) {
 		if ( ($rga[$i-1] == $spg[$sp][$t][$i-1]) || ($spg[$sp][$t][$i-1] == 'Z') ) {
 			//echo "*";
@@ -44,10 +49,11 @@ function confere( $sp, $t, $a, $qi, $qf, $d, $spg ) { // a = Aluno; qi = Questã
 		$i++;
 		$qq++;
 	}
-	echo "<b>Q:</b>$qq <b>A:</b>$acertos ".cp($qq, $acertos). '% ' .$a['nome'].'<br>';
+	echo "<b>Q:</b>$qq <b>A:</b>$acertos ".cp($qq, $acertos). '<b>%</b> ' .$a['nome'].'<br>';
 }
 
 function processa( $sp, $t, $qi, $qf, $d, $spg) { // Processa notas da turma; sp = Série Prova; t = turma; qi = Questão Inicial, qf = Questão Final; d = Disciplina 
+		echo "<center><b>$sp $t $d</b></center>";
 		$rq = mysql_query("SELECT respostas, serie_prova, numero, turma, nome FROM selecionados WHERE serie_prova='$sp' AND turma='$t' ORDER BY turma ASC, nome ASC"); // rq = Resultado Query 
 		while ( $row = mysql_fetch_array( $rq ) )
         {
