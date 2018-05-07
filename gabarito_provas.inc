@@ -26,7 +26,7 @@ $spg['D6EF01']['F'] = $g6sp1;
 $spg['D6EF01']['G'] = $g6sp1;
 $spg['D6EF01']['H'] = $g6sp1;
 
-$g6sp2 = array('B', 'C', 'B', 'A', 'C', 'D', 'C', 'B', 'Z', 'D', 'B', 'D', 'A', 'A', 'D'); 
+$g6sp2 = array('B', 'C', 'B', 'A', 'C', 'D', 'C', 'B', 'Z', 'D', 'B', 'D', 'A', 'C', 'D'); 
 $spg['D6EF02']['A'] = $g6sp2;
 $spg['D6EF02']['B'] = $g6sp2;
 $spg['D6EF02']['C'] = $g6sp2;
