@@ -64,21 +64,24 @@ function processa( $sp, $t, $qi, $qf, $d, $spg) { // Processa notas da turma; sp
 
 // ------------------ PRINCIPAL 
 
-/*
-$ap = 'D6EF01'; // Ano Prova 
+
+//$ap = 'D6EF01'; // Ano Prova 
+//print_r($ap);
+$ap = $lp['A6P1']; // Ano Prova 
+print_r($ap);
 foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
 	//print_r($t);
 	processa( $ap, $t, 1, 7, 'Matemática', $spg);
 	processa( $ap, $t, 8, 11, 'História', $spg);
 	processa( $ap, $t, 12, 15, 'Geografia', $spg);
 }
-*/
+
 $ap = 'D6EF02';
 foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
-	//processa( $ap, $t, 1, 10, 'Português', $spg);
+	processa( $ap, $t, 1, 10, 'Português', $spg);
 	processa( $ap, $t, 11, 15, 'Ciências', $spg);
 }
-/*
+
 $ap = 'D7EF01';
 foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
 	processa( $ap, $t, 1, 7, 'Matemática', $spg);
@@ -119,7 +122,7 @@ foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prov
 	processa( $ap, $t, 15, 22, 'Física', $spg);
 	processa( $ap, $t, 23, 30, 'Química', $spg);
 }
-*/
+
 mysql_close($conexao);
 ?>
 </pre>
