@@ -8,6 +8,9 @@ ini_set('display_errors', 1 );
 	<meta charset="utf-8">
 	<style>
 		.break { page-break-before: always; }
+		.totalAlunos { 
+			text-align: right;
+		}
 		b {
 			font-weight: bold;
 			font-family: "Arial Black", Times, serif;
@@ -55,10 +58,13 @@ function confere( $sp, $t, $a, $qi, $qf, $d, $spg ) { // a = Aluno; qi = Questã
 function processa( $sp, $t, $qi, $qf, $d, $spg) { // Processa notas da turma; sp = Série Prova; t = turma; qi = Questão Inicial, qf = Questão Final; d = Disciplina 
 		echo "<center><b>$sp $t $d</b></center><br>";
 		$rq = mysql_query("SELECT respostas, serie_prova, numero, turma, nome FROM selecionados WHERE serie_prova='$sp' AND turma='$t' ORDER BY turma ASC, nome ASC"); // rq = Resultado Query 
+		$qtda = 0; // qtda = Quantidade De Alunos
 		while ( $row = mysql_fetch_array( $rq ) )
         {
-			confere( $sp, $t, $row, $qi, $qf, $d, $spg );		
+			confere( $sp, $t, $row, $qi, $qf, $d, $spg );
+			$qtda++;
 		}
+		echo "<div class='totalAlunos'>TOTAL DE ALUNOS: $qtda</div>";
 		echo "<br class='break'>";
 }
 
