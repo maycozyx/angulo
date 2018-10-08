@@ -33,6 +33,7 @@ $listaProvas = [
 ];
 */
 
+/*
 // Esta nomeclatura das provas foi utilizada na P3 e P4 de 2018
 // lp = Lista de Provas; A = Ano/série; P = prova/primeira prova ou segunda do simulado;
 $lp = [
@@ -44,6 +45,20 @@ $lp = [
 	"A8P2" => "P4-EF8",
 	"A9P1" => "P3-EF9",
 	"A9P2" => "P4-EF9",
+];
+*/
+
+// Esta nomeclatura das provas foi utilizada na P3 e P4 de 2018
+// lp = Lista de Provas; A = Ano/série; P = prova/primeira prova ou segunda do simulado;
+$lp = [
+    "A6P1" => "P5-EF6",
+	"A6P2" => "P6-EF6",
+	"A7P1" => "P5-EF7",
+	"A7P2" => "P6-EF7",
+	"A8P1" => "P5-EF8",
+	"A8P2" => "P6-EF8",
+	"A9P1" => "P5-EF9",
+	"A9P2" => "P6-EF9",
 ];
 
 // spg = Série Prova do Gabarito; Z significa validada para todos
