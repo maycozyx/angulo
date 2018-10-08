@@ -1,6 +1,6 @@
 <?php
 
-$conexao = mysql_connect("localhost", "root", "");
-mysql_select_db("angulo");
+$conexao = mysqli_connect("localhost", "root", "");
+mysqli_select_db($conexao, "angulo");
 
 ?>
