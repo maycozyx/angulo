@@ -55,11 +55,11 @@ function confere( $sp, $t, $a, $qi, $qf, $d, $spg ) { // a = Aluno; qi = Questã
 	echo "<b>Q:</b>$qq <b>A:</b>$acertos ".cp($qq, $acertos). '<b>%</b> ' .$a['nome'].'<br>';
 }
 
-function processa( $sp, $t, $qi, $qf, $d, $spg) { // Processa notas da turma; sp = Série Prova; t = turma; qi = Questão Inicial, qf = Questão Final; d = Disciplina 
+function processa( $conexao, $sp, $t, $qi, $qf, $d, $spg) { // Processa notas da turma; sp = Série Prova; t = turma; qi = Questão Inicial, qf = Questão Final; d = Disciplina 
 		echo "<center><b>$sp $t $d</b></center><br>";
-		$rq = mysql_query("SELECT respostas, serie_prova, numero, turma, nome FROM selecionados WHERE serie_prova='$sp' AND turma='$t' ORDER BY turma ASC, nome ASC"); // rq = Resultado Query 
+		$rq = mysqli_query($conexao, "SELECT respostas, serie_prova, numero, turma, nome FROM selecionados WHERE serie_prova='$sp' AND turma='$t' ORDER BY turma ASC, nome ASC"); // rq = Resultado Query 
 		$qtda = 0; // qtda = Quantidade De Alunos
-		while ( $row = mysql_fetch_array( $rq ) )
+		while ( $row = mysqli_fetch_array( $rq ) )
         {
 			confere( $sp, $t, $row, $qi, $qf, $d, $spg );
 			$qtda++;
@@ -79,59 +79,59 @@ $ap = $lp['A6P1']; // Ano Prova
 //foreach( $spg[$lp['A6P1']] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
 foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
 	//print_r($t);
-	processa( $ap, $t, 1, 7, 'Matemática', $spg);
-	processa( $ap, $t, 8, 11, 'História', $spg);
-	processa( $ap, $t, 12, 15, 'Geografia', $spg);
+	processa( $conexao, $ap, $t, 1, 7, 'Matemática', $spg);
+	processa( $conexao, $ap, $t, 8, 11, 'História', $spg);
+	processa( $conexao, $ap, $t, 12, 15, 'Geografia', $spg);
 }
 
 $ap = $lp['A6P2'];
 foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
-	processa( $ap, $t, 1, 10, 'Português', $spg);
-	processa( $ap, $t, 11, 15, 'Ciências', $spg);
+	processa( $conexao, $ap, $t, 1, 10, 'Português', $spg);
+	processa( $conexao, $ap, $t, 11, 15, 'Ciências', $spg);
 }
 
 $ap = $lp['A7P1'];
 foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
-	processa( $ap, $t, 1, 7, 'Matemática', $spg);
-	processa( $ap, $t, 8, 11, 'História', $spg);
-	processa( $ap, $t, 12, 15, 'Geografia', $spg);
+	processa( $conexao, $ap, $t, 1, 7, 'Matemática', $spg);
+	processa( $conexao, $ap, $t, 8, 11, 'História', $spg);
+	processa( $conexao, $ap, $t, 12, 15, 'Geografia', $spg);
 }
 
 $ap = $lp['A7P2'];
 foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
-	processa( $ap, $t, 1, 10, 'Português', $spg);
-	processa( $ap, $t, 11, 15, 'Ciências', $spg);
+	processa( $conexao, $ap, $t, 1, 10, 'Português', $spg);
+	processa( $conexao, $ap, $t, 11, 15, 'Ciências', $spg);
 }
 
 $ap = $lp['A8P1'];
 foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
-	processa( $ap, $t, 1, 10, 'Matemática', $spg);
-	processa( $ap, $t, 11, 15, 'História', $spg);
-	processa( $ap, $t, 16, 20, 'Geografia', $spg);
+	processa( $conexao, $ap, $t, 1, 10, 'Matemática', $spg);
+	processa( $conexao, $ap, $t, 11, 15, 'História', $spg);
+	processa( $conexao, $ap, $t, 16, 20, 'Geografia', $spg);
 }
 
 $ap = $lp['A8P2'];
 foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
-	processa( $ap, $t, 1, 10, 'Português', $spg);
-	processa( $ap, $t, 11, 15, 'Física', $spg);
-	processa( $ap, $t, 16, 20, 'Biologia', $spg);
+	processa( $conexao, $ap, $t, 1, 10, 'Português', $spg);
+	processa( $conexao, $ap, $t, 11, 15, 'Física', $spg);
+	processa( $conexao, $ap, $t, 16, 20, 'Biologia', $spg);
 }
 
 $ap = $lp['A9P1'];
 foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
-	processa( $ap, $t, 1, 14, 'Matemática', $spg);
-	processa( $ap, $t, 15, 22, 'História', $spg);
-	processa( $ap, $t, 23, 30, 'Geografia', $spg);
+	processa( $conexao, $ap, $t, 1, 14, 'Matemática', $spg);
+	processa( $conexao, $ap, $t, 15, 22, 'História', $spg);
+	processa( $conexao, $ap, $t, 23, 30, 'Geografia', $spg);
 }
 
 $ap = $lp['A9P2'];
 foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
-	processa( $ap, $t, 1, 14, 'Português', $spg);
-	processa( $ap, $t, 15, 22, 'Física', $spg);
-	processa( $ap, $t, 23, 30, 'Química', $spg);
+	processa( $conexao, $ap, $t, 1, 14, 'Português', $spg);
+	processa( $conexao, $ap, $t, 15, 22, 'Física', $spg);
+	processa( $conexao, $ap, $t, 23, 30, 'Química', $spg);
 }
 
-mysql_close($conexao);
+mysqli_close($conexao);
 ?>
 </pre>
 </body>
