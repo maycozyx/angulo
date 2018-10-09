@@ -20,10 +20,18 @@ function calculaPercentual( $tq, $ta ) { // calcula quantos porcento o aluno tev
 function gabaritoAlunno( $spa, $ga, $spg ) { // spa = Série Prova Aluno; ga = Gabarito Aluno; spg = Série Prova do Gabarito
 	$i = 0; // para controle do array no foreach
 	$rga = str_split($ga); // rga = Respostas do Gabarito do Aluno
+	/*
+	//print_r($rga);
+	print_r($spg[$spa]['A']);
+	print_r($spa);
+	print_r($spg);
+	*/
 	$rgal = ""; // rga = Respostas do Gabarito do Aluno Limpa/sem caracteres desnecessários
-	foreach( $spg[$spa] as $q ) { 
+	//foreach( $spg[$spa] as $q ) { 
+	foreach( $spg[$spa]['A'] as $q ) { // usa como referência a turma A de cada série para saber a quantidade de questões
 		$rgal .= $rga[$i];
 		$i++;
+		//echo " ".$i ." ";
 	}
 	return $rgal;
 }
