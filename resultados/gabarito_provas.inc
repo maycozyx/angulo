@@ -296,16 +296,16 @@ $spg[$lp['A7P2']]['D'] = $g7sp2;
 $spg[$lp['A7P2']]['E'] = $g7sp2;
 $spg[$lp['A7P2']]['F'] = $g7sp2;
 
-$g8sp1 = array('B', 'D', 'C', 'C', 'A', 'C', 'B', 'A', 'B', 'C', 'A', 'B', 'B', 'B', 'D', 'C', 'D', 'C', 'C', 'Z');
-$spg[$lp['A8P1']]['A'] = $g8sp1;
-$spg[$lp['A8P1']]['B'] = $g8sp1;
-$spg[$lp['A8P1']]['C'] = $g8sp1;
-$spg[$lp['A8P1']]['D'] = $g8sp1;
+$g8sp1 = array('B', 'D', 'C', 'C', 'A', 'C', 'B', 'A', 'B', 'C', 'A', 'B', 'B', 'B', 'D', 'C', 'D', 'C', 'C', 'D');
+$spg[$lp['A8P1']]['A'] = array('B', 'D', 'C', 'C', 'A', 'C', 'B', 'A', 'B', 'Z', 'A', 'B', 'B', 'B', 'D', 'C', 'D', 'C', 'C', 'D');
+$spg[$lp['A8P1']]['B'] = array('B', 'D', 'C', 'C', 'A', 'C', 'B', 'Z', 'Z', 'Z', 'A', 'B', 'B', 'B', 'D', 'C', 'D', 'C', 'C', 'D');
+$spg[$lp['A8P1']]['C'] = array('B', 'D', 'C', 'C', 'A', 'C', 'B', 'A', 'B', 'Z', 'A', 'B', 'B', 'B', 'D', 'C', 'D', 'C', 'C', 'D');
+$spg[$lp['A8P1']]['D'] = array('B', 'D', 'C', 'C', 'A', 'C', 'B', 'A', 'B', 'Z', 'A', 'B', 'B', 'B', 'D', 'C', 'D', 'C', 'C', 'D');
 $spg[$lp['A8P1']]['E'] = $g8sp1;
-$spg[$lp['A8P1']]['F'] = $g8sp1;
-$spg[$lp['A8P1']]['G'] = $g8sp1;
+$spg[$lp['A8P1']]['F'] = array('B', 'D', 'C', 'C', 'A', 'C', 'B', 'A', 'B', 'Z', 'A', 'B', 'B', 'B', 'D', 'C', 'D', 'C', 'C', 'D');
+$spg[$lp['A8P1']]['G'] = array('B', 'D', 'C', 'C', 'A', 'C', 'B', 'A', 'Z', 'Z', 'A', 'B', 'B', 'B', 'D', 'C', 'D', 'C', 'C', 'D');
 
-$g8sp2 = array('C', 'D', 'C', 'C', 'C', 'A', 'C', 'A', 'A', 'D', 'A', 'A', 'A', 'C', 'A', 'D', 'A', 'D', 'C', 'A');
+$g8sp2 = array('C', 'D', 'C', 'C', 'C', 'A', 'C', 'A', 'A', 'D', 'A', 'A', 'A', 'C', 'Z', 'D', 'A', 'D', 'C', 'A');
 $spg[$lp['A8P2']]['A'] = $g8sp2;
 $spg[$lp['A8P2']]['B'] = $g8sp2;
 $spg[$lp['A8P2']]['C'] = $g8sp2;
@@ -324,9 +324,9 @@ $spg[$lp['A9P1']]['F'] = $g9sp1;
 
 $g9sp2 = array('A', 'B', 'C', 'D', 'D', 'A', 'D', 'A', 'D', 'E', 'A', 'C', 'B', 'B', 'C', 'B', 'C', 'E', 'A', 'D', 'B', 'A', 'A', 'B', 'A', 'D', 'D', 'D', 'A', 'B');
 $spg[$lp['A9P2']]['A'] = $g9sp2;
-$spg[$lp['A9P2']]['B'] = $g9sp2;
+$spg[$lp['A9P2']]['B'] = array('A', 'B', 'C', 'D', 'D', 'A', 'D', 'A', 'D', 'E', 'A', 'C', 'B', 'B', 'C', 'B', 'C', 'E', 'A', 'D', 'B', 'Z', 'A', 'B', 'A', 'D', 'D', 'D', 'A', 'B');
 $spg[$lp['A9P2']]['C'] = $g9sp2;
-$spg[$lp['A9P2']]['D'] = $g9sp2;
+$spg[$lp['A9P2']]['D'] = array('A', 'B', 'C', 'D', 'D', 'A', 'D', 'A', 'D', 'E', 'A', 'C', 'B', 'B', 'C', 'B', 'C', 'E', 'A', 'D', 'B', 'Z', 'A', 'B', 'A', 'D', 'D', 'D', 'A', 'B');
 $spg[$lp['A9P2']]['E'] = $g9sp2;
 $spg[$lp['A9P2']]['F'] = $g9sp2;
 
