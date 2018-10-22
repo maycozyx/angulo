@@ -113,8 +113,8 @@ foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prov
 $ap = $lp['A8P2'];
 foreach( $spg[$ap] as $t => $value ) { // faz para todas as turmas do 6 ano prova 1
 	processa( $conexao, $ap, $t, 1, 10, 'Português', $spg);
-	processa( $conexao, $ap, $t, 11, 15, 'Física', $spg);
-	processa( $conexao, $ap, $t, 16, 20, 'Biologia', $spg);
+	processa( $conexao, $ap, $t, 11, 15, 'Biologia', $spg);
+	processa( $conexao, $ap, $t, 16, 20, 'Física', $spg);
 }
 
 $ap = $lp['A9P1'];
