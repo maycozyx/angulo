@@ -42,15 +42,19 @@ function confere( $sp, $t, $a, $qi, $qf, $d, $spg ) { // a = Aluno; qi = Questã
 	//print_r($spg[$sp][$t]);
 	//echo "$sp $t $d ";
 	while ( ( $i >= $qi ) && ( $i <= $qf ) ) {
-		if ( ($rga[$i-1] == $spg[$sp][$t][$i-1]) || ($spg[$sp][$t][$i-1] == 'Z') ) {
+		//if ( ($rga[$i-1] == $spg[$sp][$t][$i-1]) || ($spg[$sp][$t][$i-1] == 'Z') ) { // era para quando recebia ponto da questão anulada
+		if ( $rga[$i-1] == $spg[$sp][$t][$i-1] ) { // 1-4 para descondiderar questões anuladas e não recebe ponto por elas
 			//echo "*";
 			$acertos++;
+			$qq++; // 2-4 para descondiderar questões anuladas e não recebe ponto por elas
+		} elseif ($spg[$sp][$t][$i-1] != 'Z') { // 3-4 para descondiderar questões anuladas e não recebe ponto por elas
+			$qq++;
 		}
 		
 		echo "<b>".$spg[$sp][$t][$i-1].'</b>'.$rga[$i-1].' '; // -1 porque o array começa com zero
 		//echo $i;
 		$i++;
-		$qq++;
+		//$qq++; // 4-4 para descondiderar questões anuladas e não recebe ponto por elas
 	}
 	echo "<b>Q:</b>$qq <b>A:</b>$acertos ".cp($qq, $acertos). '<b>%</b> ' .$a['nome'].'<br>';
 }
