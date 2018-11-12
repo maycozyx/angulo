@@ -28,14 +28,14 @@ function abre_arquivo($conexao, $nome_arquivo) {
 }
 //-------- PROGRAMA PRINCIPAL ------
 
-abre_arquivo($conexao, "../../2801-EF6P5.csv");
-abre_arquivo($conexao, "../../2801-EF6P6.csv");
-abre_arquivo($conexao, "../../2801-EF7P5.csv");
-abre_arquivo($conexao, "../../2801-EF7P6.csv");
-abre_arquivo($conexao, "../../2801-EF8P5.csv");
-abre_arquivo($conexao, "../../2801-EF8P6.csv");
-abre_arquivo($conexao, "../../2801-EF9P5.csv");
-abre_arquivo($conexao, "../../2801-EF9P6.csv");
+abre_arquivo($conexao, "../../2801-6P7.csv");
+abre_arquivo($conexao, "../../2801-6P8.csv");
+abre_arquivo($conexao, "../../2801-7P7.csv");
+abre_arquivo($conexao, "../../2801-7P8.csv");
+abre_arquivo($conexao, "../../2801-8P7.csv");
+abre_arquivo($conexao, "../../2801-8P8.csv");
+abre_arquivo($conexao, "../../2801-9P7.csv");
+abre_arquivo($conexao, "../../2801-9P8.csv");
 
 mysqli_close($conexao);
 ?>
